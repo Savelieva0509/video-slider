@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import Modal from 'react-modal';
+import React from 'react';
+import styles from './Modal.module.css';
 
 const VideoModal = ({ videoUrl, isOpen, onRequestClose }) => {
-  useEffect(() => {
-    Modal.setAppElement('#root'); // Змініть '#root' на відповідний селектор вашого кореневого елемента
-  }, []);
+  if (!isOpen) {
+    return null;
+  }
+
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel="Video Modal"
-    >
-      <div className="video-container">
+    <div className={styles.modalBackdrop} onClick={onRequestClose}>
+      <div className={styles.videoModal}>
+        <span className={styles.closeButton} onClick={onRequestClose}>
+          &times;
+        </span>
         <iframe
           src={videoUrl}
           title="video"
-          width="800"
-          height="450"
+          width="100%"
+          height="100%"
           frameBorder="0"
           allowFullScreen
         ></iframe>
       </div>
-    </Modal>
+    </div>
   );
 };
 

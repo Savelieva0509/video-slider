@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 
 const VideoModal = ({ videoUrl, isOpen, onRequestClose }) => {
+  useEffect(() => {
+    Modal.setAppElement('#root'); // Змініть '#root' на відповідний селектор вашого кореневого елемента
+  }, []);
   return (
     <Modal
       isOpen={isOpen}

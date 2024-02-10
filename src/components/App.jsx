@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import VideoSlider from './Slider/Slider';
 import VideoModal from './Modal/Modal';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [, setCurrentVideoIndex] = useState(0);

@@ -2,7 +2,7 @@
   "name": "video-slider",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/video-slider/",
+  "homepage": "https://savelieva0509.github.io/video-slider/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",

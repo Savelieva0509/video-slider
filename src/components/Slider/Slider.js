@@ -19,19 +19,30 @@ const VideoSlider = ({ openVideoModal }) => {
     'https://player.vimeo.com/video/824804225',
     'https://player.vimeo.com/video/824804225',
   ];
+  
+const breakpoints = {
+  320: {
+    slidesPerView: 1,
+  },
+  768: {
+    slidesPerView: 3,
+    spaceBetween: 20,
+  },
+  1200: {
+    slidesPerView: 4,
+  },
+};
 
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={10}
       slidesPerView={4}
-      navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }}
+      navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       className={styles.sliderContainer}
+      breakpoints={breakpoints}
     >
       {videos.map((video, index) => (
         <SwiperSlide key={index}>
@@ -40,6 +51,7 @@ const VideoSlider = ({ openVideoModal }) => {
             onClick={() => openVideoModal(index)}
           >
             <img
+              className={styles.sliderImg}
               src={`https://vumbnail.com/${video.split('/').pop()}.jpg`}
               alt={`Video ${index}`}
               width={200}
@@ -47,8 +59,6 @@ const VideoSlider = ({ openVideoModal }) => {
           </div>
         </SwiperSlide>
       ))}
-      <div className="swiper-button-next"></div>
-      <div className="swiper-button-prev"></div>
     </Swiper>
   );
 };

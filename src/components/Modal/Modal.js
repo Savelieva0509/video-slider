@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import styles from './Modal.module.css';
 
 const VideoModal = ({ videoUrl, isOpen, onRequestClose }) => {
@@ -9,9 +10,9 @@ const VideoModal = ({ videoUrl, isOpen, onRequestClose }) => {
   return (
     <div className={styles.modalBackdrop} onClick={onRequestClose}>
       <div className={styles.videoModal}>
-        <span className={styles.closeButton} onClick={onRequestClose}>
-          &times;
-        </span>
+        <button className={styles.closeButton} onClick={onRequestClose}>
+          <AiOutlineClose />
+        </button>
         <iframe
           src={videoUrl}
           title="video"
